@@ -86,7 +86,7 @@ app
       const posts = await prisma.posts.findUnique({
         where: { id, AND: { isDeleted: false } },
       });
-      if (!posts)
+      if (!posts == null)
         return res.status(200).json({ err: "seems object was deleted" });
       res.status(200).json(posts);
     }),
